@@ -11,6 +11,9 @@ public abstract class TextAction {
     public static class Click {
         private Click() { }
 
+        public static TextAction openURL(String URL) {
+            return new TextClickActionOpenURL(URL);
+        }
         public static TextAction runCommand(String command) {
             return new TextClickActionRunCommand(command);
         }
