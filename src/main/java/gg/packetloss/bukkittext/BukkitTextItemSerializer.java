@@ -1,7 +1,7 @@
 package gg.packetloss.bukkittext;
 
-import net.minecraft.server.v1_16_R1.NBTTagCompound;
-import org.bukkit.craftbukkit.v1_16_R1.inventory.CraftItemStack;
+import net.minecraft.server.v1_16_R3.NBTTagCompound;
+import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 class BukkitTextItemSerializer {
