@@ -45,6 +45,7 @@ class TextBase extends Text implements TextStreamPart, TextBuilder {
         return this;
     }
 
+    @Override
     public BaseComponent[] build() {
         TextComponent resultComponent = new TextComponent();
 
@@ -76,5 +77,30 @@ class TextBase extends Text implements TextStreamPart, TextBuilder {
         }
 
         return new BaseComponent[] { resultComponent };
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        ChatColor curColor = ChatColor.WHITE;
+        for (TextStreamPart part : messageParts) {
+            if (part instanceof TextChatColor) {
+                // If we've got a color, update the color information, and then append it.
+                curColor = ((TextChatColor) part).color;
+                builder.append(curColor);
+            } else if (part instanceof TextString) {
+                // Add the message text.
+                builder.append(((TextString) part).message);
+            } else if (part instanceof TextBase) {
+                // Add the parts built by the sub text, then reset/continue the current color information.
+                builder.append(part);
+                builder.append(curColor);
+            } else {
+                throw new UnsupportedOperationException("Unsupported text stream part.");
+            }
+        }
+
+        return builder.toString();
     }
 }
