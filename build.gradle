@@ -11,14 +11,14 @@ repositories {
 }
 
 dependencies {
-    compileOnly group: 'com.destroystokyo.paper', name: 'paper-api', version: '1.16.4-R0.1-SNAPSHOT'
-    compileOnly group: 'com.destroystokyo.paper', name: 'paper', version: '1.16.4-R0.1-SNAPSHOT'
+    compileOnly group: 'io.papermc.paper', name: 'Paper-API', version: '1.17-R0.1-SNAPSHOT'
+    compileOnly group: 'io.papermc.paper', name: 'Paper-Server', version: '1.17-R0.1-SNAPSHOT', classifier: 'reobf'
 }
 
 sourceCompatibility = JavaVersion.VERSION_16
 targetCompatibility = JavaVersion.VERSION_16
 group = 'gg.packetloss'
-version = '1.16.4.1'
+version = '1.17.1.0'
 
 publishing {
     publications {
