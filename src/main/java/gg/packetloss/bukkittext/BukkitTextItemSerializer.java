@@ -1,12 +1,12 @@
 package gg.packetloss.bukkittext;
 
-import net.minecraft.nbt.NBTTagCompound;
-import org.bukkit.craftbukkit.v1_17_R1.inventory.CraftItemStack;
+import net.minecraft.nbt.CompoundTag;
+import org.bukkit.craftbukkit.v1_18_R1.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 class BukkitTextItemSerializer {
-    private static NBTTagCompound toTag(ItemStack stack) {
-        NBTTagCompound compound = new NBTTagCompound();
+    private static CompoundTag toTag(ItemStack stack) {
+        CompoundTag compound = new CompoundTag();
         CraftItemStack.asNMSCopy(stack).save(compound);
         return compound;
     }
@@ -14,5 +14,4 @@ class BukkitTextItemSerializer {
     public static String toJSON(ItemStack stack) {
         return toTag(stack).toString();
     }
-
 }
