@@ -1,13 +1,19 @@
 package gg.packetloss.bukkittext;
 
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
-import org.bukkit.craftbukkit.v1_20_R1.inventory.CraftItemStack;
+import net.minecraft.server.MinecraftServer;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 class BukkitTextItemSerializer {
+    private static RegistryAccess.Frozen getRegistry() {
+        return MinecraftServer.getServer().registryAccess();
+    }
+
     private static CompoundTag toTag(ItemStack stack) {
         CompoundTag compound = new CompoundTag();
-        CraftItemStack.asNMSCopy(stack).save(compound);
+        CraftItemStack.asNMSCopy(stack).save(getRegistry(), compound);
         return compound;
     }
 
